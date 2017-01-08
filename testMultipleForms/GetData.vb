@@ -1,11 +1,18 @@
-﻿Public Class Form1
-    Dim modSet As New DataSet
+﻿Public Class GetData
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Dim modSet As New DataSet
+    Dim objTransData As DataTransfer
+    Global.datatransfer.TransSet
+
+
+
+
+
+    Public Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CreateDataTable()
     End Sub
 
-    Sub CreateDataTable()
+    Public Sub CreateDataTable()
         Dim testTable As New DataTable
         Dim newCol = testTable.Columns
         Dim newRow = testTable.Rows
@@ -23,13 +30,14 @@
         DataGridView1.DataSource = modSet.Tables(0)
     End Sub
 
-    Sub DisplayDataTable()
+    Public Sub DisplayDataTable()
         modSet.Tables(0).GetChanges()
         modSet.Tables(0).AcceptChanges()
         DataGridView2.DataSource = modSet.Tables(0)
     End Sub
 
-    Private Sub Commit_Click(sender As Object, e As EventArgs) Handles Commit.Click
+    Public Sub Commit_Click(sender As Object, e As EventArgs) Handles Commit.Click
         DisplayDataTable()
+        DataTransfer.Show()
     End Sub
 End Class
