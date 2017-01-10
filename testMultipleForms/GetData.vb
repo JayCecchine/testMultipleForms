@@ -2,7 +2,16 @@
 
     Dim modSet As New DataSet
     Dim objTransData As DataTransfer
-    Global.datatransfer.TransSet
+    Public Property dataSets() As DataSet
+        Get
+            Return dataSets
+        End Get
+
+        Set(value As DataSet)
+            dataSets = value
+        End Set
+    End Property
+
 
 
 
@@ -26,8 +35,9 @@
         newRow.Add("Clubs", "1.50", "2.00")
 
         modSet.Tables.Add(testTable)
+        dataSets = modSet
 
-        DataGridView1.DataSource = modSet.Tables(0)
+        DataGridView1.DataSource = dataSets.Tables(0)
     End Sub
 
     Public Sub DisplayDataTable()

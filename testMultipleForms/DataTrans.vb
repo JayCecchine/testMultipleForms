@@ -6,6 +6,8 @@
 
         GetData.CreateDataTable()
         'DataGridView1.DataSource = modSet.Tables(0)
+        ' GetData.dataSets.Tables(0)
+
     End Sub
 
 
